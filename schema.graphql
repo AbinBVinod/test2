@@ -1,0 +1,71 @@
+type EventsSummary {
+  id: ID!
+    rewardFxdxVault_AddReward: [RewardFxdxVault_AddReward!]! @derivedFrom(field: "eventsSummary")
+    rewardFxdxVault_AddRewardCount: BigInt!
+    rewardFxdxVault_SendReward: [RewardFxdxVault_SendReward!]! @derivedFrom(field: "eventsSummary")
+    rewardFxdxVault_SendRewardCount: BigInt!
+    rewardFxdxVault_TotalReserves: [RewardFxdxVault_TotalReserves!]! @derivedFrom(field: "eventsSummary")
+    rewardFxdxVault_TotalReservesCount: BigInt!
+    stakedFxdxVault_Stake: [StakedFxdxVault_Stake!]! @derivedFrom(field: "eventsSummary")
+    stakedFxdxVault_StakeCount: BigInt!
+    stakedFxdxVault_TotalReserves: [StakedFxdxVault_TotalReserves!]! @derivedFrom(field: "eventsSummary")
+    stakedFxdxVault_TotalReservesCount: BigInt!
+    stakedFxdxVault_Unstake: [StakedFxdxVault_Unstake!]! @derivedFrom(field: "eventsSummary")
+    stakedFxdxVault_UnstakeCount: BigInt!
+}
+    type RewardFxdxVault_AddReward {
+  id: ID!
+      rewardId: BigInt!
+      stakeId: BigInt!
+      rewardAmount: BigInt!
+      duration: BigInt!
+      timestamp: BigInt!
+      account: String!
+      isClaimed: Boolean!
+    eventsSummary: String!
+}
+    type RewardFxdxVault_SendReward {
+  id: ID!
+      rewardId: BigInt!
+      stakeId: BigInt!
+      rewardAmount: BigInt!
+      duration: BigInt!
+      timestamp: BigInt!
+      account: String!
+      isClaimed: Boolean!
+    eventsSummary: String!
+}
+    type RewardFxdxVault_TotalReserves {
+  id: ID!
+      vault: String!
+      rewardReserves: BigInt!
+    eventsSummary: String!
+}
+    type StakedFxdxVault_Stake {
+  id: ID!
+      stakeId: BigInt!
+      amount: BigInt!
+      duration: BigInt!
+      rewardInterestRate: BigInt!
+      timestamp: BigInt!
+      account: String!
+      unstaked: Boolean!
+    eventsSummary: String!
+}
+    type StakedFxdxVault_TotalReserves {
+  id: ID!
+      vault: String!
+      reserves: BigInt!
+    eventsSummary: String!
+}
+    type StakedFxdxVault_Unstake {
+  id: ID!
+      stakeId: BigInt!
+      amount: BigInt!
+      duration: BigInt!
+      rewardInterestRate: BigInt!
+      timestamp: BigInt!
+      account: String!
+      unstaked: Boolean!
+    eventsSummary: String!
+}

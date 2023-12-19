@@ -1,0 +1,33 @@
+name: stakedata
+networks:
+- id: 8453
+  start_block: 7578558
+  contracts:
+  - name: StakedFxdxVault
+    address:
+    - 0x7221B51F28C150e4D90aEAb2393B0Ea04B7F710F
+    handler: ./src/EventHandlers.js
+    events:
+    - event: Stake(uint256 indexed stakeId, uint256 amount, uint256 duration, uint256 rewardInterestRate, uint256 timestamp, address indexed account, bool unstaked)
+      requiredEntities:
+      - name: EventsSummary
+    - event: TotalReserves(address indexed vault, uint256 indexed reserves)
+      requiredEntities:
+      - name: EventsSummary
+    - event: Unstake(uint256 indexed stakeId, uint256 amount, uint256 duration, uint256 rewardInterestRate, uint256 timestamp, address indexed account, bool unstaked)
+      requiredEntities:
+      - name: EventsSummary
+  - name: RewardFxdxVault
+    address:
+    - 0xb9451677AAD516ce435b55d8989743881B5A0444
+    handler: ./src/EventHandlers.js
+    events:
+    - event: AddReward(uint256 indexed rewardId, uint256 indexed stakeId, uint256 rewardAmount, uint256 duration, uint256 timestamp, address indexed account, bool isClaimed)
+      requiredEntities:
+      - name: EventsSummary
+    - event: SendReward(uint256 indexed rewardId, uint256 indexed stakeId, uint256 rewardAmount, uint256 duration, uint256 timestamp, address indexed account, bool isClaimed)
+      requiredEntities:
+      - name: EventsSummary
+    - event: TotalReserves(address indexed vault, uint256 indexed rewardReserves)
+      requiredEntities:
+      - name: EventsSummary
